@@ -8,46 +8,96 @@
 
 ## 📋 Overview
 
-This project presents a comprehensive analysis of age-related changes in human gait biomechanics through an interactive **Biomechanics Intelligence Panel**. Using data from 138 healthy adults (21-86 years), we investigate how aging affects walking patterns, joint mechanics, and clinical fall risk indicators.
+# Dataset Description
 
-### 🎯 Key Research Questions
-- How do spatiotemporal gait parameters change across age groups?
-- Which joints show the most significant age-related ROM changes?
-- How do joint moments and power adapt with aging?
-- What are the clinical implications for fall risk assessment?
+This project uses the full-body gait and motion capture dataset published by **Van Criekinge et al. (2023)** in *Scientific Data*, titled  
+**“A full-body motion capture gait dataset of 138 able-bodied adults across the life span and 50 stroke survivors.”**  
+📄 [Nature article link](https://www.nature.com/articles/s41597-023-02767-y)
 
-## 📊 Dataset Information
+---
 
-**Source:** [Nature Scientific Data (2024)](https://www.nature.com/articles/s41597-023-02767-y)  
-**Citation:** Sivakanthan, S., Granata, K.P., Kesar, T.M. et al. An instrumented treadmill database for the study of healthy human locomotion over the full adult lifespan. *Sci Data* **11**, 22 (2024).  
-**Sample:** 138 healthy adults (21-86 years)  
-**Features:** 88+ biomechanical variables including:
-- Spatiotemporal parameters (speed, cadence, step length/width)
-- Joint kinematics (ROM, angles, variability)
-- Joint kinetics (moments, efficiency)
-- Joint power (generation, absorption)
-- Muscle activity (EMG - 7 bilateral muscles)
-- Ground reaction forces (GRF - 3D)
+## Overview
 
-### 🔬 Study Methodology
+The dataset provides comprehensive **3D motion capture, ground reaction force, and electromyography (EMG)** data collected from:
+- **138 able-bodied adults** (ages 21–86 years)
+- **50 stroke survivors** (ages 19–85 years)
 
-**Experimental Setup:**
-- **Setting:** Laboratory-controlled instrumented treadmill analysis
-- **Protocol:** Self-selected walking speed on dual-belt treadmill system
-- **Participants:** Rigorous screening for neurological/musculoskeletal conditions
-- **Data Collection:** Multiple gait cycles recorded per participant
+Each participant performed multiple walking trials under standardized conditions. Data were recorded using a **full-body Plug-in Gait marker model**, synchronized force plates, and surface EMG sensors.
 
-**Measurement Systems:**
-- **3D Motion Capture:** Full-body kinematics with marker-based tracking
-- **Force Plates:** Embedded dual-belt treadmill with 3D GRF measurement
-- **EMG Recording:** 7 bilateral lower-limb muscles (gastrocnemius, rectus femoris, vastus lateralis, biceps femoris, semitendinosus, tibialis anterior, erector spinae)
-- **Data Processing:** Time-normalized to 1001 points per gait cycle (0-100%)
+The dataset is structured for both **raw data access** (C3D files) and **processed data analysis** (MATLAB `.mat` files).
 
-**Data Quality:**
-- Complete kinematic and kinetic data for all participants
-- EMG data availability: ~77-79% (systematic technical limitations documented)
-- No systematic missing data patterns across age groups
-- Rigorous artifact detection and signal filtering protocols
+---
+
+## Contents
+
+### 1. Participant Groups
+| Group | Count | Age Range | Notes |
+|-------|--------|------------|-------|
+| Able-bodied | 138 | 21–86 years | Baseline gait data across lifespan |
+| Stroke survivors | 50 | 19–85 years | Includes clinical metadata (stroke type, lesion location, time since stroke, functional scores) |
+
+---
+
+### 2. Raw Data (C3D Files)
+Each C3D file contains:
+- 3D marker trajectories (full-body Plug-in Gait model)
+- Ground reaction forces (from dual force plates)
+- Raw EMG signals (14 bilateral muscles)
+- Anthropometrics and trial metadata
+
+The C3D files are organized in two main directories:
+
+---
+
+### 3. Processed Data (MAT Files)
+Preprocessed and stride-normalized MATLAB structures (`.mat`) include:
+- **Kinematics:** joint angles, segment positions, and center of mass trajectories  
+- **Kinetics:** joint moments, powers, and ground reaction forces (normalized to body mass)  
+- **EMG:** rectified, filtered, and time-normalized signals for 14 muscles  
+- **Gait events:** heel strike, toe-off, stride indices, and stride time normalization  
+- **Metadata:** participant info, anthropometrics, and trial notes  
+
+A detailed variable description is provided in the included  
+`MATdatafiles_description_v1.3_LST` document.
+
+---
+
+### 4. Data Structure Summary
+
+| Data Type | Variables | Notes |
+|------------|------------|-------|
+| **Kinematics** | 3D joint angles, segment positions, CoM trajectories | 1000 time-normalized points per stride |
+| **Kinetics** | Joint moments, powers, GRFs | Force-plate-validated strides only |
+| **EMG** | 14 bilateral muscles | Raw and processed versions |
+| **Events & Metadata** | Gait event timings, stride IDs, anthropometrics | Event markers aligned with C3D frames |
+
+> ⚠️ Some strides and trials may have missing EMG or force data. Missing values are represented as `NaN` in processed files.
+
+---
+
+### 5. Tools and Access
+
+- The full dataset (raw and processed) is hosted on **Figshare**, linked through the Nature article.  
+- Example MATLAB code for loading and visualizing the data is included with the dataset.  
+- A **MatToPy** converter is available for importing MATLAB structures into Python workflows.  
+- Compatible with **Visual3D**, **MATLAB**, and **Python c3d readers**.
+
+
+---
+
+## Citation
+
+If you use this dataset in your work, please cite:
+
+> Van Criekinge, T., De Kegel, A., Van Campenhout, A. *et al.*  
+> **A full-body motion capture gait dataset of 138 able-bodied adults across the life span and 50 stroke survivors.**  
+> *Scientific Data* 10, 767 (2023).  
+> DOI: [10.1038/s41597-023-02767-y](https://doi.org/10.1038/s41597-023-02767-y)
+
+---
+
+
+
 
 ## 🏗️ Project Structure
 
