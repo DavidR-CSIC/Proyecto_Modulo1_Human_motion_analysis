@@ -484,8 +484,8 @@ def main():
         
         with col1:
             st.markdown("""
-            **Study:** *"An instrumented treadmill database for the study of healthy human locomotion over the full adult lifespan"*  
-            **Authors:** Sivakanthan, S., Granata, K.P., Kesar, T.M. et al.  
+            **Study:** *"A full-body motion capture gait dataset of 138 able-bodied adults across the life span and 50 stroke survivors"*  
+            **Authors:** Van Criekinge, T., Saeys, W., Truijen, S. et al.  
             **Journal:** Nature Scientific Data (2024)  
             **DOI:** [10.1038/s41597-023-02767-y](https://doi.org/10.1038/s41597-023-02767-y)
             
