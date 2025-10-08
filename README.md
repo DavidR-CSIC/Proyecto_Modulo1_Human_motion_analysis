@@ -1,5 +1,6 @@
 # 🏃‍♀️ Human Motion Analysis: Age-Related Gait Biomechanics
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://motionanalysisprojectdavidrodriguezcianca.streamlit.app/)
 [![Dataset](https://img.shields.io/badge/Dataset-Nature%20Scientific%20Data-blue)](https://www.nature.com/articles/s41597-023-02767-y)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)](https://streamlit.io/)
@@ -73,7 +74,13 @@ Proyecto_Modulo1_Human_motion_analysis/
 └── README.md                           # This file
 ```
 
-## 🚀 Quick Start
+## 🌐 Live Demo
+
+**🚀 Try the app online:** [https://motionanalysisprojectdavidrodriguezcianca.streamlit.app/](https://motionanalysisprojectdavidrodriguezcianca.streamlit.app/)
+
+*The interactive Biomechanics Intelligence Panel is deployed and ready to use - no installation required!*
+
+## 🚀 Quick Start (Local Development)
 
 ### Prerequisites
 - Python 3.8 or higher
